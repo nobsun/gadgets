@@ -1,0 +1,16 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "gadgets:lib"
+
+    - path: "./app/Main.hs"
+      component: "gadgets:exe:gadgets"
+
+    - path: "./test/spec.hs"
+      component: "gadgets:test:gadgets-test"
+  
+    - path: "./test/LibSpec.hs"
+      component: "gadgets:test:gadgets-test"
+  
+    - path: "./test/doctests.hs"
+      component: "gadgets:test:gadgets-doctest"

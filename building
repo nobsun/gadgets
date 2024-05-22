@@ -1,0 +1,4 @@
+#!/bin/bash
+
+source .curname
+stack build gadgets:exe:$CURRENT_ATCODER_EXE_NAME
