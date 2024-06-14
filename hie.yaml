@@ -3,14 +3,20 @@ cradle:
     - path: "./src"
       component: "gadgets:lib"
 
-    - path: "./app/Main.hs"
-      component: "gadgets:exe:gadgets"
+    - path: "./app/entr/Main.hs"
+      component: "gadgets:exe:entr"
 
-    - path: "./test/spec.hs"
-      component: "gadgets:test:gadgets-test"
-  
-    - path: "./test/LibSpec.hs"
-      component: "gadgets:test:gadgets-test"
-  
-    - path: "./test/doctests.hs"
+    - path: "./app/entr/Paths_gadgets.hs"
+      component: "gadgets:exe:entr"
+
+    - path: "./app/modu/Main.hs"
+      component: "gadgets:exe:modu"
+
+    - path: "./app/modu/Paths_gadgets.hs"
+      component: "gadgets:exe:modu"
+
+    - path: "./test"
       component: "gadgets:test:gadgets-doctest"
+
+    - path: "./test"
+      component: "gadgets:test:gadgets-test"
