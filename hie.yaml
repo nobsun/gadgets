@@ -3,6 +3,12 @@ cradle:
     - path: "./src"
       component: "gadgets:lib"
 
+    - path: "./app/detag/Main.hs"
+      component: "gadgets:exe:detag"
+
+    - path: "./app/detag/Paths_gadgets.hs"
+      component: "gadgets:exe:detag"
+
     - path: "./app/entr/Main.hs"
       component: "gadgets:exe:entr"
 

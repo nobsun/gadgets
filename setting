@@ -1,7 +1,7 @@
 #!/bin/bash
 
-ins-entry $1
-echo "export CURRENT_ATCODER_EXE_NAME=$1" >! .curname
+add-entry $1
+echo "export CURRENT_ATCODER_EXE_NAME=$1" > .curname
 
 stack build gadgets:exe:$1
 

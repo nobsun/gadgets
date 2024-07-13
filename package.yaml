@@ -66,6 +66,14 @@ library:
   source-dirs: src
 
 executables:
+  detag:
+    main:               Main.hs
+    source-dirs:        app/detag
+    ghc-options:
+    - -rtsopts
+    dependencies:
+    - gadgets
+
   modu:
     main:               Main.hs
     source-dirs:        app/modu
