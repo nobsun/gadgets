@@ -15,6 +15,12 @@ cradle:
     - path: "./app/entr/Paths_gadgets.hs"
       component: "gadgets:exe:entr"
 
+    - path: "./app/hspp2hs/Main.hs"
+      component: "gadgets:exe:hspp2hs"
+
+    - path: "./app/hspp2hs/Paths_gadgets.hs"
+      component: "gadgets:exe:hspp2hs"
+
     - path: "./app/modu/Main.hs"
       component: "gadgets:exe:modu"
 

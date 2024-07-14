@@ -66,6 +66,14 @@ library:
   source-dirs: src
 
 executables:
+  hspp2hs:
+    main:               Main.hs
+    source-dirs:        app/hspp2hs
+    ghc-options:
+    - -rtsopts
+    dependencies:
+    - gadgets
+
   detag:
     main:               Main.hs
     source-dirs:        app/detag
