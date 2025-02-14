@@ -29,9 +29,9 @@ dependencies:
 - main-tester
 - doctest
 - aeson
-- gloss
 - array
 - containers
+- mtl
 - free
 - recursion-schemes
 - vector
