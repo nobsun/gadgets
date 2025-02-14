@@ -27,6 +27,12 @@ cradle:
     - path: "./app/modu/Paths_gadgets.hs"
       component: "gadgets:exe:modu"
 
+    - path: "./app/nightly/Main.hs"
+      component: "gadgets:exe:nightly"
+
+    - path: "./app/nightly/Paths_gadgets.hs"
+      component: "gadgets:exe:nightly"
+
     - path: "./test"
       component: "gadgets:test:gadgets-doctest"
 
