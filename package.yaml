@@ -66,6 +66,14 @@ library:
   source-dirs: src
 
 executables:
+  nightly:
+    main:               Main.hs
+    source-dirs:        app/nightly
+    ghc-options:
+    - -rtsopts
+    dependencies:
+    - gadgets
+
   hspp2hs:
     main:               Main.hs
     source-dirs:        app/hspp2hs
