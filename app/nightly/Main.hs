@@ -1,18 +1,9 @@
 {-# LANGUAGE GHC2021 #-}
-{-# LANGUAGE ImplicitParams #-}
-{-# LANGUAGE ImportQualifiedPost #-}
-{-# LANGUAGE LexicalNegation #-}
-{-# LANGUAGE LambdaCase, MultiWayIf #-}
-{-# LANGUAGE NPlusKPatterns #-}
-{-# LANGUAGE DataKinds, PolyKinds, NoStarIsType, TypeFamilyDependencies #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE OverloadedRecordDot, NoFieldSelectors, DuplicateRecordFields #-}
+{-# LANGUAGE LambdaCase #-}
 module Main where
 
-import Control.Exception
 import Data.List
 import Data.Time
-import Data.Time.Calendar
 import System.IO
 import System.Directory
 
@@ -22,8 +13,9 @@ main = do
     ; ih <- openFile "stack.yaml" ReadMode
     ; oh <- openFile "tmptmp" WriteMode
     ; ls <- lines <$> hGetContents ih
-    ; hPutStr oh $ unlines $ nightly ss ls (drop 1 ls)
-    ; hFlush oh; hClose oh; hClose ih
+    ; hPutStr oh $ unlines $ nightly ss ls (drop 1 ls); hFlush oh
+    ; hClose oh
+    ; hClose ih
     ; renameFile "stack.yaml" "stack.yaml.old"
     ; renameFile "tmptmp" "stack.yaml"
     ; removeFile "stack.yaml.old"
