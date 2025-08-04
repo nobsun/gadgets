@@ -3,14 +3,38 @@ cradle:
     - path: "./src"
       component: "gadgets:lib"
 
-    - path: "./app/Main.hs"
-      component: "gadgets:exe:gadgets"
+    - path: "./app/detag/Main.hs"
+      component: "gadgets:exe:detag"
 
-    - path: "./test/spec.hs"
-      component: "gadgets:test:gadgets-test"
-  
-    - path: "./test/LibSpec.hs"
-      component: "gadgets:test:gadgets-test"
-  
-    - path: "./test/doctests.hs"
+    - path: "./app/detag/Paths_gadgets.hs"
+      component: "gadgets:exe:detag"
+
+    - path: "./app/entr/Main.hs"
+      component: "gadgets:exe:entr"
+
+    - path: "./app/entr/Paths_gadgets.hs"
+      component: "gadgets:exe:entr"
+
+    - path: "./app/hspp2hs/Main.hs"
+      component: "gadgets:exe:hspp2hs"
+
+    - path: "./app/hspp2hs/Paths_gadgets.hs"
+      component: "gadgets:exe:hspp2hs"
+
+    - path: "./app/modu/Main.hs"
+      component: "gadgets:exe:modu"
+
+    - path: "./app/modu/Paths_gadgets.hs"
+      component: "gadgets:exe:modu"
+
+    - path: "./app/nightly/Main.hs"
+      component: "gadgets:exe:nightly"
+
+    - path: "./app/nightly/Paths_gadgets.hs"
+      component: "gadgets:exe:nightly"
+
+    - path: "./test"
       component: "gadgets:test:gadgets-doctest"
+
+    - path: "./test"
+      component: "gadgets:test:gadgets-test"

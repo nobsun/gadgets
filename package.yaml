@@ -29,9 +29,9 @@ dependencies:
 - main-tester
 - doctest
 - aeson
-- gloss
 - array
 - containers
+- mtl
 - free
 - recursion-schemes
 - vector
@@ -66,6 +66,30 @@ library:
   source-dirs: src
 
 executables:
+  nightly:
+    main:               Main.hs
+    source-dirs:        app/nightly
+    ghc-options:
+    - -rtsopts
+    dependencies:
+    - gadgets
+
+  hspp2hs:
+    main:               Main.hs
+    source-dirs:        app/hspp2hs
+    ghc-options:
+    - -rtsopts
+    dependencies:
+    - gadgets
+
+  detag:
+    main:               Main.hs
+    source-dirs:        app/detag
+    ghc-options:
+    - -rtsopts
+    dependencies:
+    - gadgets
+
   modu:
     main:               Main.hs
     source-dirs:        app/modu
