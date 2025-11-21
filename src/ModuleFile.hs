@@ -19,7 +19,7 @@ initModule templ modname = do
           }
     ; createDirectoryIfMissing True moddir
     ; bool (filterFile (convname templ modname) tmplfile modfile)
-           (error $ "initModule: module file already exists: " ++ modfile)
+           (hPutStrLn stderr $ "initModule: module file already exists: " ++ modfile)
            =<< doesFileExist modfile
     }
 
@@ -32,10 +32,13 @@ initTestModule templ modname = do
           ; moddir   = takeDirectory modfile
           }
     ; createDirectoryIfMissing True moddir
-    ; bool (filterFile (convname' templ modname) tmplfile modfile)
-           (error $ "initTestModule: module file already exists: " ++ modfile)
+    ; bool (filterFile (convname' templ modname) tmplfile modfile >> hPutStrLn stderr (promptMsg modfile))
+           (hPutStrLn stderr $ "initTestModule: module file already exists: " ++ modfile)
            =<< doesFileExist modfile
     }
+    where
+        promptMsg fn = "You must modify the file '"
+                     ++ fn ++ "' to remove initial error"
 
 filterFile :: (String -> String) -> FilePath -> FilePath -> IO ()
 filterFile conv src dst
