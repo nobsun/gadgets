@@ -1,5 +1,6 @@
 module Main where
 
+import Data.Bool
 import Data.Char
 import Data.List
 import System.Directory
@@ -25,7 +26,7 @@ proc pj ex = do
         ; from     = "app" </> "Main.hs"
         ; to       = execdir </> "Main.hs"
         }
-    ; createDirectory execdir
+    ; bool (createDirectory execdir) (return ()) =<< doesDirectoryExist execdir
     ; copyFile from to
     ; insEntry pj normex
     }

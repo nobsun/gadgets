@@ -38,6 +38,8 @@ dependencies:
 - directory
 - filepath
 - split
+- list-shuffle
+- random
 
 language: GHC2021
 
@@ -66,6 +68,14 @@ library:
   source-dirs: src
 
 executables:
+  rndints:
+    main:               Main.hs
+    source-dirs:        app/rndints
+    ghc-options:
+    - -rtsopts
+    dependencies:
+    - gadgets
+
   nightly:
     main:               Main.hs
     source-dirs:        app/nightly

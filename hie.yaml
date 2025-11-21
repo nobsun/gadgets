@@ -33,6 +33,12 @@ cradle:
     - path: "./app/nightly/Paths_gadgets.hs"
       component: "gadgets:exe:nightly"
 
+    - path: "./app/rndints/Main.hs"
+      component: "gadgets:exe:rndints"
+
+    - path: "./app/rndints/Paths_gadgets.hs"
+      component: "gadgets:exe:rndints"
+
     - path: "./test"
       component: "gadgets:test:gadgets-doctest"
 

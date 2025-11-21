@@ -1,4 +1,4 @@
 #!/bin/bash
 
 source .curname
-stack exec -- $CURRENT_APP_EXE_NAME
+stack exec -- $CURRENT_APP_EXE_NAME $1
