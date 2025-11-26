@@ -11,21 +11,22 @@ main :: IO ()
 main = do
     { pr <- getProgName
     ; args <- getArgs
-    ; let spec = "-s" `elem` args
-    ; let as = delete "-s" args
+    ; let test = any (`elem` args) ["-t","-b"]
+    ; let src  = any (`elem` args) ["-s","-b"] || not test
+    ; let as = args \\ ["-s","-t","-b"]
     ; case as of
         [target]          -> do
-            { initModule "Lib" target
+            { bool (return ()) (initModule "Lib" target) src
             ; bool (return ())
                    (initTestModule "LibSpec" (target ++ "Spec"))
-                   . (spec &&)
+                   . (test &&)
                    =<< doesDirectoryExist "test"
             }
         [template,target] -> do
-            { initModule template target
+            { bool (return ()) (initModule template target) src
             ; bool (return ())
                    (initTestModule (template ++ "Spec") (target ++ "Spec"))
-                   . (spec &&)
+                   . (test &&)
                    =<< doesDirectoryExist "test"
             }
         _                 -> usage pr
@@ -35,7 +36,7 @@ usage :: String -> IO ()
 usage pr = hPutStrLn stderr $ unwords
     [ "Usage:"
     , pr
-    , "[-s]"
+    , "[-s] [-t] [-b]"
     , "[<template-module>]"
     , "<target-module>"
     ]
