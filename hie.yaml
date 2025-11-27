@@ -21,6 +21,12 @@ cradle:
     - path: "./app/hspp2hs/Paths_gadgets.hs"
       component: "gadgets:exe:hspp2hs"
 
+    - path: "./app/mlinput/Main.hs"
+      component: "gadgets:exe:mlinput"
+
+    - path: "./app/mlinput/Paths_gadgets.hs"
+      component: "gadgets:exe:mlinput"
+
     - path: "./app/modu/Main.hs"
       component: "gadgets:exe:modu"
 

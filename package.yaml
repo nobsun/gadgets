@@ -40,6 +40,7 @@ dependencies:
 - split
 - list-shuffle
 - random
+- haskeline
 
 language: GHC2021
 
@@ -68,6 +69,14 @@ library:
   source-dirs: src
 
 executables:
+  mlinput:
+    main:               Main.hs
+    source-dirs:        app/mlinput
+    ghc-options:
+    - -rtsopts
+    dependencies:
+    - gadgets
+
   rndints:
     main:               Main.hs
     source-dirs:        app/rndints
