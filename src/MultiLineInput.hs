@@ -38,22 +38,5 @@ multiLineInput p q t = loop id where
                     acc'   = bool (acc . (' ' :)) id (acc "" == "")
         }
 
--- multiLineInput q t = runInputT defaultSettings (loop id) where
---     loop :: (String -> String) -> InputT IO [String]
---     loop acc = do
---         { minput <- getInputLine ""
---         ; case minput of
---             Nothing -> return []
---             Just input
---                 | input == q -> return []
---                 | otherwise  -> case break (t ==) input' of
---                     (_,[])       -> loop (acc' . (input' ++))
---                     (str,[_])    -> (acc' str :) <$> loop id
---                     _            -> error "invalid input"
---                 where
---                     input' = trim input
---                     acc'   = bool (acc . (' ' :)) id (acc "" == "")
---         }
-
 trim :: String -> String
 trim = dropWhileEnd isSpace . dropWhile isSpace

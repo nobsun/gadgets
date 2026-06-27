@@ -77,6 +77,14 @@ executables:
     dependencies:
     - gadgets
 
+  shflints:
+    main:               Main.hs
+    source-dirs:        app/shflints
+    ghc-options:
+    - -rtsopts
+    dependencies:
+    - gadgets
+
   rndints:
     main:               Main.hs
     source-dirs:        app/rndints

@@ -1,4 +1,4 @@
-{-# LANGUAGE GHC2021 #-}
+{-# LANGUAGE GHC2024 #-}
 {-# LANGUAGE ImplicitParams #-}
 {-# LANGUAGE ImportQualifiedPost #-}
 {-# LANGUAGE LexicalNegation #-}
@@ -11,14 +11,25 @@ module Main where
 
 import Data.Bool
 import Data.List
-import List.Shuffle
 import System.Environment
+import System.Random
 
 main :: IO ()
 main = do
     { args <- getArgs
-    ; let n = bool 1000 (read @Int (head args)) (not (null args))
-    ; rs <- shuffleIO [1 .. n]
-    ; print n
-    ; putStr (unlines (singleton (unwords (show <$> rs))))
-    ; }
+    ; g <- getStdGen
+    ; case args of
+        n:u:f -> do
+            { let num = read @Int n
+            ; let ub = read @Int u
+            ; let rs = take num $ randomRs (1,ub) g
+            ; print num
+            ; case f of
+                "-m":_ -> putStr $ unlines $ map show rs
+                _      -> putStr $ unlines $ singleton $ unwords $ map show rs
+            }
+        _          -> usage
+    }
+
+usage :: IO ()
+usage = putStrLn "usage: rndints <number of numbers> <upper bound> [-m]"
