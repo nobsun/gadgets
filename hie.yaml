@@ -15,6 +15,12 @@ cradle:
     - path: "./app/entr/Paths_gadgets.hs"
       component: "gadgets:exe:entr"
 
+    - path: "./app/genrnds/Main.hs"
+      component: "gadgets:exe:genrnds"
+
+    - path: "./app/genrnds/Paths_gadgets.hs"
+      component: "gadgets:exe:genrnds"
+
     - path: "./app/hspp2hs/Main.hs"
       component: "gadgets:exe:hspp2hs"
 
@@ -44,6 +50,12 @@ cradle:
 
     - path: "./app/rndints/Paths_gadgets.hs"
       component: "gadgets:exe:rndints"
+
+    - path: "./app/shflints/Main.hs"
+      component: "gadgets:exe:shflints"
+
+    - path: "./app/shflints/Paths_gadgets.hs"
+      component: "gadgets:exe:shflints"
 
     - path: "./test"
       component: "gadgets:test:gadgets-doctest"

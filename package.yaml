@@ -69,6 +69,14 @@ library:
   source-dirs: src
 
 executables:
+  genrnds:
+    main:               Main.hs
+    source-dirs:        app/genrnds
+    ghc-options:
+    - -rtsopts
+    dependencies:
+    - gadgets
+
   mlinput:
     main:               Main.hs
     source-dirs:        app/mlinput
@@ -132,16 +140,6 @@ executables:
     - -rtsopts
     dependencies:
     - gadgets
-
-  # gadgets:
-  #   main:                Main.hs
-  #   source-dirs:         app
-  #   ghc-options:
-  #   - -rtsopts
-  #   # - -threaded
-  #   # - -with-rtsopts=-N
-  #   dependencies:
-  #   - gadgets
 
 tests:
   gadgets-test:

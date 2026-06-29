@@ -9,27 +9,29 @@
 {-# LANGUAGE OverloadedRecordDot, NoFieldSelectors, DuplicateRecordFields #-}
 module Main where
 
+import Data.ByteString.Char8 qualified as B
 import Data.Bool
 import Data.List
+import Data.List.Split
 import System.Environment
+import System.IO
 import System.Random
+import Text.Printf
 
 main :: IO ()
 main = do
     { args <- getArgs
     ; g <- getStdGen
     ; case args of
-        n:u:f -> do
-            { let num = read @Int n
-            ; let ub = read @Int u
-            ; let rs = take num $ randomRs (1,ub) g
-            ; print num
-            ; case f of
-                "-m":_ -> putStr $ unlines $ map show rs
-                _      -> putStr $ unlines $ singleton $ unwords $ map show rs
+        u:h:w:_ -> do
+            { let ub = read u :: Int
+            ; let (r,c) = (read h, read w) :: (Int, Int)
+            ; let rs = take (r*c) $ randomRs (1,ub) g
+            ; printf "%d %d\n" r c
+            ; B.putStr $ B.unlines $ map (B.unwords . map (B.pack . show)) $ chunksOf c rs
             }
-        _          -> usage
+        _       -> usage
     }
 
 usage :: IO ()
-usage = putStrLn "usage: rndints <number of numbers> <upper bound> [-m]"
+usage = hPutStrLn stderr "usage: rndints <upper bound> <number of rows> <number of columns>"
