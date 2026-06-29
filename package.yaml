@@ -77,6 +77,30 @@ executables:
     dependencies:
     - gadgets
 
+  nrnds:
+    main:               Main.hs
+    source-dirs:        app/genrnds
+    ghc-options:
+    - -rtsopts
+    dependencies:
+    - gadgets
+
+  zrnds:
+    main:               Main.hs
+    source-dirs:        app/genrnds
+    ghc-options:
+    - -rtsopts
+    dependencies:
+    - gadgets
+
+  rnds:
+    main:               Main.hs
+    source-dirs:        app/genrnds
+    ghc-options:
+    - -rtsopts
+    dependencies:
+    - gadgets
+
   mlinput:
     main:               Main.hs
     source-dirs:        app/mlinput
